@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:form_validation_test/src/config/global_widgets/final_texts.dart';
 import 'package:form_validation_test/src/config/global_widgets/header_introduction.dart';
@@ -6,6 +5,7 @@ import 'package:form_validation_test/src/config/global_widgets/my_elevated_butto
 import 'package:form_validation_test/src/config/global_widgets/text_inputs_field.dart';
 import 'package:form_validation_test/src/pages/page2/components/second_page_provider.dart';
 import 'package:provider/provider.dart';
+import 'components/my_back_button.dart';
 import 'components/second_page_text_fields.dart';
 
 class SecondPage extends StatelessWidget {
@@ -21,24 +21,7 @@ class SecondPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 50),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_outlined,
-                          color: Color.fromARGB(255, 61, 12, 196),
-                          size: 40,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const MyBackButton(),
                 const HeaderIntroduction(
                     allPadding: 2,
                     bottomPadding: 40,
