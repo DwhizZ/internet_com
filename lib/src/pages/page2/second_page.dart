@@ -1,8 +1,12 @@
+
 import 'package:flutter/material.dart';
+import 'package:form_validation_test/src/config/global_widgets/final_texts.dart';
+import 'package:form_validation_test/src/config/global_widgets/header_introduction.dart';
+import 'package:form_validation_test/src/config/global_widgets/my_elevated_button.dart';
 import 'package:form_validation_test/src/config/global_widgets/text_inputs_field.dart';
-import 'package:form_validation_test/src/config/themes/app_styles.dart';
-import 'package:form_validation_test/src/pages/page2/second_page_provider.dart';
+import 'package:form_validation_test/src/pages/page2/components/second_page_provider.dart';
 import 'package:provider/provider.dart';
+import 'components/second_page_text_fields.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -35,50 +39,12 @@ class SecondPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(2),
-                  child: Text('Create Account', style: AppStyles.headerStyle),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 40),
-                  child: Text(
-                    'Create a new account',
-                    style:
-                        AppStyles.subheaderStyle.copyWith(color: Colors.black),
-                  ),
-                ),
-                TextinputsField(
-                  controller: provider.nameController,
-                  label: 'NAME',
-                  myIcon: Icons.account_circle_outlined,
-                  onChanged: provider.onChangedName,
-                  hint: 'user123@gmail.com',
-                  validator: provider.nameValidator,
-                ),
-                TextinputsField(
-                  controller: provider.emailController,
-                  label: 'EMAIL',
-                  myIcon: Icons.email_outlined,
-                  onChanged: provider.onChangedEmail,
-                  hint: 'user123@gmail.com',
-                  validator: provider.emailValidator,
-                ),
-                TextinputsField(
-                  controller: provider.phoneNumber,
-                  label: 'PHONE',
-                  myIcon: Icons.phone_android_outlined,
-                  onChanged: provider.onChangedPhoneNumber,
-                  hint: '+91 9844545609',
-                  validator: provider.numberValidator,
-                ),
-                TextinputsField(
-                  controller: provider.password,
-                  label: 'PASSWORD',
-                  myIcon: Icons.lock_outline,
-                  onChanged: provider.onChangedPassword,
-                  hint: '**********',
-                  validator: provider.passwordValidator,
-                ),
+                const HeaderIntroduction(
+                    allPadding: 2,
+                    bottomPadding: 40,
+                    bigText: 'Create Account',
+                    smallText: 'Create a nea account'),
+                SecondPageTextFields(provider: provider),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 30),
                   child: TextinputsField(
@@ -92,35 +58,17 @@ class SecondPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 61, 12, 196),
-                      minimumSize: const Size.fromHeight(50),
-                    ),
-                    child: const Text('CREATE ACCOUNT'),
+                  child: MyElevatedButton(
+                    onButtonClick: () {},
+                    buttonText: 'CREATE ACCOUNT',
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Already have an account?',
-                      style: AppStyles.subheaderStyle
-                          .copyWith(color: Colors.black),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        ' Login',
-                        style: AppStyles.subheaderStyle
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
+                FinalTexts(
+                    firstText: 'Already have an account?',
+                    followUpText: 'Login',
+                    onFollowUpClick: () {
+                      Navigator.pop(context);
+                    }),
               ],
             ),
           ),

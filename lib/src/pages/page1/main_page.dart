@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:form_validation_test/src/config/routes/route_name.dart';
 import 'package:form_validation_test/src/config/themes/app_styles.dart';
-import 'package:form_validation_test/src/pages/page1/main_page_provider.dart';
+import 'package:form_validation_test/src/pages/page1/components/main_page_provider.dart';
 import 'package:provider/provider.dart';
-
-import '../../config/global_widgets/text_inputs_field.dart';
+import '../../config/global_widgets/final_texts.dart';
+import '../../config/global_widgets/header_introduction.dart';
+import '../../config/global_widgets/my_elevated_button.dart';
+import 'components/forget_password_line.dart';
+import 'components/main_page_text_fields.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -29,53 +32,21 @@ class MainPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text('Welcome Back', style: AppStyles.headerStyle),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 60),
-                  child: Text('Sign in to Continue',
-                      style: AppStyles.subheaderStyle),
-                ),
-                TextinputsField(
-                    label: 'Email',
-                    hint: 'user123@gmail.com',
-                    controller: provider.emailController,
-                    onChanged: provider.onChangedEmail,
-                    validator: provider.emailValidator,
-                    myIcon: Icons.email_outlined),
-                TextinputsField(
-                    label: 'Password',
-                    controller: provider.passwordController,
-                    myIcon: Icons.lock,
-                    hint: '*********',
-                    obscureText: true,
-                    onChanged: provider.onChangedPassword,
-                    validator: provider.passwordValidator),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'Forget Password?',
-                          style: AppStyles.subheaderStyle
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                const HeaderIntroduction(
+                    allPadding: 8,
+                    bottomPadding: 60,
+                    bigText: 'Welcome Back',
+                    smallText: 'Sign in to continue'),
+                MainPageTextFields(provider: provider),
+                const ForgetPasswordLine(),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 35),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
+                      MyElevatedButton(
+                        buttonText: 'LOGIN',
+                        onButtonClick: () {
                           if (provider.areFieldsValid()) {
                             Navigator.pushNamed(context, RouteName.secondPage);
                           } else {
@@ -87,30 +58,16 @@ class MainPage extends StatelessWidget {
                             );
                           }
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 61, 12, 196),
-                          minimumSize: const Size.fromHeight(50),
-                        ),
-                        child: const Text('LOGIN'),
                       ),
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Dont have account?',
-                      style: AppStyles.subheaderStyle
-                          .copyWith(color: Colors.black),
-                    ),
-                    Text(
-                      ' Create a new account?',
-                      style: AppStyles.subheaderStyle
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                FinalTexts(
+                  firstText: 'Dont have account?',
+                  followUpText: 'Create a new account?',
+                  onFollowUpClick: () {
+                    Navigator.pushNamed(context, RouteName.secondPage);
+                  },
                 ),
               ],
             ),
