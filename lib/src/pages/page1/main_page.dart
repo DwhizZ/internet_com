@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:form_validation_test/src/config/routes/route_name.dart';
-import 'package:form_validation_test/src/config/themes/app_styles.dart';
 import 'package:form_validation_test/src/pages/page1/components/main_page_provider.dart';
 import 'package:provider/provider.dart';
 import '../../config/global_widgets/final_texts.dart';
