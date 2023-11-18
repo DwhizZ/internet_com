@@ -6,16 +6,21 @@ class FinalTexts extends StatelessWidget {
   const FinalTexts({
     super.key,
     required this.firstText,
-    required this.followUpText, this.onFollowUpClick,
+    required this.followUpText,
+    this.onFollowUpClick,
   });
   final String firstText;
   final String followUpText;
-  final void Function ()? onFollowUpClick;
+  final void Function()? onFollowUpClick;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    // TODO: Check out this wrap widget... 
+    // study the docs on it, and see what it does
+    return Wrap(
+      alignment: WrapAlignment.center,
+      runAlignment: WrapAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           firstText,
