@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../config/global_widgets/text_inputs_field.dart';
-import 'main_page_provider.dart';
+import '../../../../config/global_widgets/text_inputs_field.dart';
+import '../../provider/main_page_provider.dart';
 
 class MainPageTextFields extends StatelessWidget {
   const MainPageTextFields({

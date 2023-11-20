@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
-import '../../../config/global_widgets/text_inputs_field.dart';
-import 'second_page_provider.dart';
+import '../../../../config/global_widgets/text_inputs_field.dart';
+import '../../provider/second_page_provider.dart';
 
 class SecondPageTextFields extends StatelessWidget {
   const SecondPageTextFields({
@@ -47,6 +46,14 @@ class SecondPageTextFields extends StatelessWidget {
           onChanged: provider.onChangedPassword,
           hint: '**********',
           validator: provider.passwordValidator,
+        ),
+        TextinputsField(
+          controller: provider.password2,
+          label: 'CONFIRM  PASSWORD',
+          myIcon: Icons.lock_outline,
+          onChanged: provider.onChangedPassword2,
+          hint: '**********',
+          validator: provider.passwordValidator2,
         ),
       ],
     );

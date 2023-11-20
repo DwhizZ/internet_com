@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/themes/app_styles.dart';
+import '../../../../config/themes/app_styles.dart';
 
 class ForgetPasswordLine extends StatelessWidget {
   const ForgetPasswordLine({

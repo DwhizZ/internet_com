@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//TODO: This provider is located in the wrong folder.
+//DOne: This provider is located in the wrong folder.
 // It is not a widget component, it should have it's own folder called "providers"
 class SecondPageProvider {
   SecondPageProvider(BuildContext context);

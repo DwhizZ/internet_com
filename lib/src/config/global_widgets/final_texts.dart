@@ -15,7 +15,7 @@ class FinalTexts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Check out this wrap widget... 
+    // done: Check out this wrap widget... 
     // study the docs on it, and see what it does
     return Wrap(
       alignment: WrapAlignment.center,

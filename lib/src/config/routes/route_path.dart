@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:form_validation_test/src/pages/page1/main_page.dart';
-import 'package:form_validation_test/src/pages/page2/second_page.dart';
+import 'package:form_validation_test/src/pages/login_page/views/main_page.dart';
+import 'package:form_validation_test/src/pages/create_account_page/views/second_page.dart';
 import 'package:provider/provider.dart';
-import '../../pages/page1/components/main_page_provider.dart';
-import '../../pages/page2/components/second_page_provider.dart';
+import '../../pages/login_page/provider/main_page_provider.dart';
+import '../../pages/create_account_page/provider/second_page_provider.dart';
 import 'route_name.dart';
 
 class RoutePath {

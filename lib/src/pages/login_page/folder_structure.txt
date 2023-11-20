@@ -1,4 +1,4 @@
-TODO: Your folder structure for each page should look like this:
+Done: Your folder structure for each page should look like this:
 
 page1/ (page1 is not a suitable name... you can call it "login" or "login_page")
     |
