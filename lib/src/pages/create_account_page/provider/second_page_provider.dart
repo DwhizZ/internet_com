@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:form_validation_test/src/global/utils/toast.dart';
 
 //DOne: This provider is located in the wrong folder.
 // It is not a widget component, it should have it's own folder called "providers"
@@ -66,5 +68,21 @@ class SecondPageProvider {
     }
     if (value != password.text) return "Passwords do not match";
     return null;
+  }
+
+  void onCreateAccount() async {
+    try {
+      showLoading();
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: password.text,
+      );
+      cancelLoading();
+    } on Exception catch (e, s) {
+      cancelLoading();
+      debugPrint('$e');
+      debugPrint('$s');
+      showToast(e.toString());
+    }
   }
 }

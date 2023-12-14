@@ -13,7 +13,7 @@ class LoginButton extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 35),
       child: MyElevatedButton(
         buttonText: 'LOGIN',
-        onButtonClick: provider.fieldValidate
+        onButtonClick: provider.onAccountLogIN,
       ),
     );
   }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:form_validation_test/src/pages/login_page/provider/main_page_provider.dart';
-import 'package:provider/provider.dart';
 import 'components/log_in_button.dart';
 import 'components/app_logo.dart';
 import 'components/create_acct_text_button.dart';
@@ -19,26 +17,26 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = context.read<MainPageProvider>();
+    
     return SafeArea(
       child: Scaffold(
         //done: Use a [ListView] instead, it is more memory efficient
         body: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 60),
+          children: const[
+             Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 60),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const AppLogo(),
-                  const WelcomeBackAndSignInText(),
+                   AppLogo(),
+                  WelcomeBackAndSignInText(),
                   //done: you don't need to pass a provider into the widget,
                   // the provider can still be accessed from inside the widget
                   // check the LoginButton
-                  MainPageTextFields(provider: provider),
-                  const ForgetPasswordLine(), // very good
-                  const LoginButton(),
-                  const CreateAccountTextButton(),
+                  MainPageTextFields(),
+                  ForgetPasswordLine(), // very good
+                   LoginButton(),
+                  CreateAccountTextButton(),
                 ],
               ),
             ),

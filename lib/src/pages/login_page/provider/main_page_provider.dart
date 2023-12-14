@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../config/routes/route_name.dart';
+import '../../../global/utils/toast.dart';
 
 //done: This provider is located in the wrong folder.
 // It is not a widget component, it should have it's own folder called "providers"
@@ -57,13 +59,14 @@ class MainPageProvider {
     if (!value.contains(RegExp(r'[0-9]'))) {
       return "Password must contain at least one digit";
     }
-
-    // Check for at least one special character
-    if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return "Password must contain at least one special character";
-    }
-
     return null;
+
+    // // Check for at least one special character
+    // if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+    //   return "Password must contain at least one special character";
+    // }
+
+    // return null;
   }
 
   // Done: I see what you did, well done. You can make this a getter instead
@@ -88,6 +91,26 @@ class MainPageProvider {
           content: Text('Please fill in all required fields correctly.'),
         ),
       );
+    }
+  }
+
+  void onAccountLogIN() async {
+    try {
+      showLoading();
+      
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      // ignore: use_build_context_synchronously
+      Navigator.pushNamed(context, RouteName.bonusPage);
+
+      cancelLoading();
+    } on Exception catch (e, s) {
+      cancelLoading();
+      debugPrint('$e');
+      debugPrint('$s');
+      showToast(e.toString());
     }
   }
 }

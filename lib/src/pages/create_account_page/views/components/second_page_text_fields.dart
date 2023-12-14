@@ -46,6 +46,7 @@ class SecondPageTextFields extends StatelessWidget {
           onChanged: provider.onChangedPassword,
           hint: '**********',
           validator: provider.passwordValidator,
+          obscureText: true,
         ),
         TextinputsField(
           controller: provider.password2,
@@ -54,6 +55,7 @@ class SecondPageTextFields extends StatelessWidget {
           onChanged: provider.onChangedPassword2,
           hint: '**********',
           validator: provider.passwordValidator2,
+          obscureText: true,
         ),
       ],
     );

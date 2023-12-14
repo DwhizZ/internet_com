@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../config/global_widgets/text_inputs_field.dart';
 import '../../provider/main_page_provider.dart';
@@ -7,13 +7,11 @@ import '../../provider/main_page_provider.dart';
 class MainPageTextFields extends StatelessWidget {
   const MainPageTextFields({
     super.key,
-    required this.provider,
   });
-
-  final MainPageProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    var provider = context.read<MainPageProvider>();
     return Column(
       children: [
         TextinputsField(
